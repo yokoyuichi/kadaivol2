@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styleopen.css">
+    <link rel="stylesheet" href="css/reset.css">
+
+    <title>インディアンポーカー</title>
+</head>
+<body>
+    <header>
+       <h1 class="title">
+           <span>インディアンポーカー</span> 
+           </h1>
+           <p class="sentence">
+            <span>飲み会でよくやるゲーム。練習しましょう。</span>
+       <div class="figure">
+       <figure class="mainbg1">
+           <img src="img/mainbg2.jpeg", alt="メインバックグラウンドイメージ">
+       </figure>
+       <figure class="mainbg2">
+        <img src="img/mainbg3.jpeg", alt="メインバックグラウンドイメージ">
+    </figure>
+    </div>
+    </header>
+
+    <main>
+        <button class="Play"><a href="playpage.html" class="button"><p class="buttonfont">PLAY</p></a></button>
+    </main>
+
+    <article class="rule">
+        <h1><u>ルール</u></h1>
+        <div class="sentence1">
+            <ul>
+                <li>インディアンポーカーとは、トランプカードが1枚ずつ配られ、自分以外のカードが全部見える状態で、
+                    自分のカードと他のプレイヤーのカードの数字の大小で勝ち負けを決めるゲームです。自分のカードが一番大きい場合、勝ちとなります。</li>
+                <li>他のプレイヤーのカードを見た後、自分のカードを変えたい場合、1回だけカードの交換が可能です。</li>
+                <li>今回は、あなたを含めた4名でやってみましょう。</li>
+            </ul>
+        </div>
+    </article>
+    
+    <footer>
+        <p>Produed by Yamayama</p>
+    </footer>
+
+<script>
+//JS始まり
+
+
+//Titleのアニメーション
+const CLASSNAME = "-visible";
+const TIMEOUT = 1500;
+const DELAY = 100;
+const $target1 = $(".title");
+const $target2 = $(".sentence");
+
+setInterval(() => {
+  $target1.addClass(CLASSNAME);
+  setTimeout(() => {
+    $target2.addClass(CLASSNAME);
+  }, DELAY);
+
+  setTimeout(() => {
+    $target1.removeClass(CLASSNAME);
+    setTimeout(() => {
+      $target2.removeClass(CLASSNAME);
+    }, DELAY);
+  }, TIMEOUT);
+}, TIMEOUT * 2);
+
+
+//JS終わり
+</script>
+</ma>
+
+</html>

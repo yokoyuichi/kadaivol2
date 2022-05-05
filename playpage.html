@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styleplay.css">
+    <link rel="stylesheet" href="css/reset.css">
+<title>インディアンポーカー　プレイ画面</title>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="result">
+        <p class="res">結果</p>
+    </div>
+    <div class="cpu1">
+        <figure class="imagecpu1">
+            <img src="img/CPU.png", alt="cpu1">
+        </figure>
+    </div>
+    <div class="cpu2">
+        <figure class="imagecpu2">
+            <img src="img/CPU.png", alt="cpu2">
+        </figure>
+    </div>
+    <div class="cpu3">
+        <figure class="imagecpu3">
+            <img src="img/CPU.png", alt="cpu3">
+        </figure>
+    </div>
+   
+    <div class="player">
+        <figure class="imageplayer">
+            <img src="img/PLAYER.png", alt="player">
+        </figure>
+    </div>
+
+    <div class = "card1">
+        <figure class = "cardcpu1"></figure>
+    </div>
+    <div class = "card2">
+        <p class = "cardcpu2">ここにカード</p>
+    </div>
+    <div class = "card3">
+        <p class = "cardcpu3">ここにカード</p>
+    </div>
+    <div class = "card4">
+        <p class = "cardplayer"></p>
+    </div>
+
+    <div class = "player_sentence">
+        <p class = "player_content">←あなた</p>
+    </div>
+
+    <div class="buttons">
+        <button class="change">
+            カードを変える
+        </button>
+        <button class="unchange">
+            カードを変えない
+        </button>
+        <button class="show">
+            結果発表
+        </button>
+        <p class="back"><a href="openpage.html">戻る</a></p>
+    </div>
+
+</div>
+<footer>
+   
+</footer>
+
+<script>
+//JSスタート
+
+var gara1 = ""
+var suji1 = 1
+var card1 = ""
+var gara2 = ""
+var suji2 = 1
+var card2 = ""
+var gara3 = ""
+var suji3 = 1
+var card3 = ""
+
+while(card1==card2||card1==card3||card2==card3){
+    var gara1 = Math.ceil(Math.random()*4)
+    var suji1 = Math.ceil(Math.random()*13)
+    var card1 = String(gara1) + String(suji1) 
+
+    var gara2 = Math.ceil(Math.random()*4)
+    var suji2 = Math.ceil(Math.random()*13)
+    var card2 = String(gara2) + String(suji2) 
+
+    var gara3 = Math.ceil(Math.random()*4)
+    var suji3 = Math.ceil(Math.random()*13)
+    var card3 = String(gara3) + String(suji3)
+} 
+
+var gara4 = ""
+var suji4 = 14
+var card4 = ""
+
+while(suji4>suji3||suji4>suji2||suji4>suji1||card1==card4||card2==card4||card3==card4){
+    var gara4 = Math.ceil(Math.random()*4)
+    var suji4 = Math.ceil(Math.random()*13)
+    var card4 = String(gara4) + String(suji4) 
+}
+//playerの数字が必ず小さくなり、被らないカードをピック。
+
+$(".cardcpu1").html(`<img class = "imgcpu1" src = "img/${card1}.png">`)
+$(".imgcpu1").css("width", "100")
+$(".cardcpu2").html(`<img class = "imgcpu2" src = "img/${card2}.png">`)
+$(".imgcpu2").css("width", "100")
+$(".cardcpu3").html(`<img class = "imgcpu3" src = "img/${card3}.png">`)
+$(".imgcpu3").css("width", "100")
+
+$(".res").fadeOut(0)
+$(".show").fadeOut(0)
+
+//変えるボタンを押したとき
+$(".change").on("click", function(){
+    $(".change").fadeOut(0)
+    $(".unchange").fadeOut(0)
+    $(".show").fadeIn(0)
+    var gara1_ = 1
+    var suji1_ = 1
+    var card1_ = 1
+    var gara3_ = 1
+    var suji3_ = 1
+    var card3_ = 1
+    var gara4_ = 1
+    var suji4_ = 1
+    var card4_ = card1
+    while(suji4_>suji3||suji4_>suji2||card1==card4_||card2==card4_||card3==card4_){
+        var gara4_ = Math.ceil(Math.random()*4)
+        var suji4_ = Math.ceil(Math.random()*13)
+        var card4_ = String(gara4_) + String(suji4_) 
+    }
+
+    while(suji4_>suji3_||suji4_>suji1_||card1_==card1||card1_==card2||card1_==card3||card1_==card4||card1_==card4_||card3_==card1||card3_==card2||card3_==card3||card3_==card4||card3_==card1_||card3_==card4_){
+        var gara1_ = Math.ceil(Math.random()*4)
+        var suji1_ = Math.ceil(Math.random()*13)
+        var card1_ = String(gara1_) + String(suji1_) 
+        var gara3_ = Math.ceil(Math.random()*4)
+        var suji3_ = Math.ceil(Math.random()*13)
+        var card3_ = String(gara3_) + String(suji3_)
+    }
+
+    $(".cardcpu1").html(`<img class = "imgcpu1" src = "img/${card1_}.png">`)
+    $(".imgcpu1").css("width", "100")
+    if(Math.random()<0.5){
+        $(".cardcpu3").html(`<img class = "imgcpu3" src = "img/${card3_}.png">`)
+        $(".imgcpu3").css("width", "100")
+        $(".final").fadeIn(0)
+
+    //CPU3の人は1/2の確率でカードを変える。CPU1は必ず変える。
+
+    //結果発表（変えるボタンを押した後）
+        $(".show").on("click", function(){
+        $(".cardplayer").html(`<img class = "imgplayer" src = "img/${card4_}.png">`)
+        $(".imgplayer").css("width", "150")
+        $(".res").fadeIn(2000)
+        if(suji1_==suji4_||suji2==suji4_||suji3_==suji4_){
+        $(".res").html('DRAW...')}
+        else{        
+        $(".res").html('LOSE...!')
+        }
+       })
+    }
+    else{
+        $(".cardcpu3").html(`<img class = "imgcpu3" src = "img/${card3}.png">`)
+        $(".imgcpu3").css("width", "100")
+        $(".final").fadeIn(0)
+        //CPU3の人は1/2の確率でカードを変える。
+
+        //結果発表（変えるボタンを押した後）
+        $(".show").on("click", function(){
+        $(".cardplayer").html(`<img class = "imgplayer" src = "img/${card4_}.png">`)
+        $(".imgplayer").css("width", "150")
+        $(".res").fadeIn(2000)
+        if(suji1_==suji4_||suji2==suji4_||suji3==suji4_){
+          $(".res").html('DRAW...')}
+          else{        
+          $(".res").html('LOSE...!')
+          }
+        })
+    }
+})
+
+//結果発表（変えないボタン）CPU2だけ、1/2の確率でカードを変える。
+$(".unchange").on("click", function(){
+    $(".cardplayer").html(`<img class = "imgplayer" src = "img/${card4}.png">`)
+    $(".imgplayer").css("width", "150")
+
+    if(Math.random()<0.5){
+        var gara2_ = 1
+        var suji2_ = 0
+        var card2_ = 1
+        while(suji4>suji2_||card2_==card1||card2_==card2||card2_==card3||card2_==card4){
+        var gara2_ = Math.ceil(Math.random()*4)
+        var suji2_ = Math.ceil(Math.random()*13)
+        var card2_ = String(gara2_) + String(suji2_) 
+        }
+        $(".cardcpu2").html(`<img class = "imgcpu2" src = "img/${card2_}.png">`)
+        $(".imgcpu2").css("width", "100")
+        if(suji1==suji4||suji2_==suji4||suji3==suji4){
+            $(".res").html('DRAW...!')}
+        else{        
+            $(".res").html('LOSE...!')
+    }
+    $(".res").fadeIn(2000)
+    }
+    if(suji1==suji4||suji2==suji4||suji3==suji4){
+    $(".res").html('DRAW...')}
+    else{        
+    $(".res").html('LOSE...!')
+    }
+    $(".res").fadeIn(2000)
+})
+
+
+</script>
+</body>
+</html>

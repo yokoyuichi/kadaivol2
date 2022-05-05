@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+header{
+    max-width: 1200px;
+}
+.title {
+    padding-top: 24px;
+    font-size: 42px;
+    text-align: center;
+    overflow: hidden;
+    transform: translate(-100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+    color: blue;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  
+  .title span {
+    display: block;
+    transform: translate(100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+  }
+  
+  .title.-visible,
+  .title.-visible span {
+    transform: translate(0, 0);
+  }
+  
+  .sentence {
+    margin-top: 10px;
+    overflow: hidden;
+    transform: translate(-100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+    font-family: "Yu Gothic Medium";
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .sentence span {
+    display: block;
+    transform: translate(100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+  }
+  
+  .sentence.-visible,
+  .sentence.-visible span {
+    transform: translate(0, 0);
+  }
+
+
+.figure{
+    display: flex;
+    gap: 20px;
+    flex-basis: auto;
+    max-width: 1200px;
+    margin-top: 24px;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+  .figure img{
+    transform: scale(1);
+    transition: .3s ease-in-out;
+    align-self: flex-start;
+    width: 100%;
+  }
+  .figure:hover img {
+    transform: scale(1.3);
+  }
+
+main{
+    text-align: center;
+    margin-top: 24px;
+    max-width: 1200px;
+}
+.buttonfont{
+    font-size: 24px;
+}
+
+.Play a:hover{
+    color : red
+}
+
+.rule h1{
+    font-size: 24px;
+    padding-top: 24px;
+    padding-left: 24px;
+    font: bold ;
+}
+
+.rule .sentence1 {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 40px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    padding: 6px;
+    max-width: 1144px;
+}
+
+ul li{
+    list-style: "\1F44D"; ;
+    line-height: 25px;
+}
+
+footer{
+    max-width: 1200px;
+    background-color: blue;
+    text-align: center;
+}
+footer p{
+    color: white;
+    font-size: 16px;
+    margin-top: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
